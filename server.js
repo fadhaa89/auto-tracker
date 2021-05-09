@@ -19,7 +19,7 @@ app.use(express.static(__dirname + '/public'));
 
 //welcome route
 app.get("/", (req, res) => {
-    res.json({ message: "Welcome to auto tracker" });
+    res.render('vehicle',{title:'My Vehicle'});
 });
 
 app.listen(PORT, () => {
