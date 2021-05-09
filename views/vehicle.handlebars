@@ -172,3 +172,130 @@
                                                                     <input type="text" class="form-control" id="modtoll_tag_numberel" name="toll_tag_number" placeholder="TollTag Number" value="{{toll_tag_number}}" required>
                                                                 </div>
                                                             </div>
+                                                            div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="insurance_expire">Insurance Expires</label>
+                                                                    <input type="date" class="form-control" id="insurance_expire_edit" name="insurance_expire" placeholder="Insurance Expires" value="{{insurance_expire}}" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="registration_expire">Registration Expires</label>
+                                                                    <input type="date" class="form-control" id="registration_expire_edit" name="registration_expire" placeholder="Registration Expires" value="{{registration_expire}}" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="purchase_mileage">Purchase Mileage</label>
+                                                                    <input type="number" class="form-control" id="purchase_mileage_edit" name="purchase_mileage" placeholder="Purchase Mileage" value="{{purchase_mileage}}" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="oil_change_mileage">Oil Change Mileage</label>
+                                                                    <input type="number" class="form-control" id="oil_change_mileage_edit" name="oil_change_mileage" placeholder="Oil Change Mileage" value="{{oil_change_mileage}}" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="tire_change_mileage">Tire Change Mileage</label>
+                                                                    <input type="number" class="form-control" id="tire_change_mileage_edit" name="tire_change_mileage" placeholder="Tire Change Mileage" value="{{tire_change_mileage}}" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <div class="text-center">
+                                                                    <button type="submit" class="btn btn-outline-success">Update</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer bg-light">
+                                                    <button type="button" class="btn  btn-outline-secondary" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                             
+                            </div>
+                        {{else}}
+                            <div class="alert alert-primary" role="alert">
+                                <p class="text-center">Your vehicle list is empty</p>
+                            </div>  
+                        {{/each}}                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="addVehicle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-light">
+                    <h5 class="modal-title" id="exampleModalLabel">Register new vehicle</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="/vehicle">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="model">Model</label>
+                                    <input type="text" class="form-control" id="model" name="model" placeholder="Model" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">                            
+                                <div class="form-group">
+                                    <label for="year">Year</label>
+                                    <input type="text" class="form-control" id="year" name="year" placeholder="Year" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="color">Color</label>
+                                    <input type="text" class="form-control" id="color" name="color" coi;laceholder="Color" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="vin">VIN</label>
+                                    <input type="text" class="form-control" id="vin" name="vin" placeholder="VIN" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="license_plate">Licence Plate</label>
+                                    <input type="text" class="form-control" id="license_plate" name="license_plate" placeholder="Licence Plate" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="toll_tag_number">TollTag Number</label>
+                                    <input type="text" class="form-control" id="modtoll_tag_numberel" name="toll_tag_number" placeholder="TollTag Number" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="insurance_expire">Insurance Expires</label>
+                                    <input type="date" class="form-control" id="insurance_expire" name="insurance_expire" placeholder="Insurance Expires" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="registration_expire">Registration Expires</label>
+                                    <input type="date" class="form-control" id="registration_expire" name="registration_expire" placeholder="Registration Expires" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="purchase_mileage">Purchase Mileage</label>
+                                    <input type="number" class="form-control" id="purchase_mileage" name="purchase_mileage" placeholder="Purchase Mileage" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="oil_change_mileage">Oil Change Mileage</label>
+                                    <input type="number" class="form-control" id="oil_change_mileage" name="oil_change_mileage" placeholder="Oil Change Mileage">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tire_change_mileage">Tire Change Mileage</label>
+                                    <input type="number" class="form-control" id="tire_change_mileage" name="tire_change_mileage" placeholder="Tire Change Mileage" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-outline-success">Register</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer bg-light">                    
+                    <button type="button" class="btn  btn-outline-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+</div>
