@@ -1,1 +1,301 @@
-hello
+<nav class="navbar navbar-expand-lg navbar-light bg-warning navbar-dark">
+  <a class="navbar-brand" href="/vehicle">My Vehicle</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/vehicle">Vehicles</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/user/drivers">Drivers</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="btn btn-danger" href="/user/logout">Logout</a>
+        </li>
+    </ul>
+  </div>
+</nav>
+<style>
+    ul.vehicle{
+        list-style: none;
+    }
+    .item{
+        font-weight: bold;
+    }
+    .item label{
+        color: #A61FA1
+    }
+</style>
+
+<div class="container mt-5 body-bg">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header bg-transparent">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p class="card-title">My Vehicle List</p>
+                        </div>
+                        <div class="col-md-4 text-lg-right text-lg-right">
+                            <button class="btn btn-success my-2 my-sm-0" data-toggle="modal" data-target="#addVehicle">Register New Vehicle</button> 
+                        </div>
+                    </div>                   
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        {{#each results}} 
+                            <div class="col-md-4 col-lg-4  mt-2">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <ul class="vehicle">
+                                            <li><b>Model:</b> {{model}}</li>
+                                            <li><b>Year:</b> {{year}}</li>
+                                            <li><b>Color:</b> {{color}}</li>
+                                            <li><b>Vin:</b> {{vin}}</li>                                        
+                                            <li><b>Licence Plate:</b> {{license_plate}}</li>
+                                            <li><b>Insurance Expire:</b>{{insurance_expire}}</li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="text-right">
+                                            <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#myModal{{@index}}">View</button>
+                                            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#editModal{{@index}}">Edit</button>
+                                            <a href="/vehicle/delete/{{id}}" class="btn btn-outline-danger">Delete</a>
+                                        </div>
+                                    </div>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="myModal{{@index}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-scrollable  modal-lg" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header bg-light">
+                                                    <h5 class="modal-title" id="exampleModalLabel">{{model}} - {{year}}</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="item">
+                                                                <label>Year</label><br/>
+                                                                {{year}}
+                                                            </div>
+                                                            <div class="item">
+                                                                <label>Color</label><br/>
+                                                                {{color}}
+                                                            </div>
+                                                            <div class="item">
+                                                                <label>VIN</label><br/>
+                                                                {{vin}}
+                                                            </div>
+                                                            <div class="item">
+                                                                <label>License Plate</label><br/>
+                                                                {{license_plate}}
+                                                            </div>
+                                                            <div class="item">
+                                                                <label>TollTag Number</label><br/>
+                                                                {{toll_tag_number}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="item">
+                                                                <label>Insurance Expires</label><br/>
+                                                                {{insurance_expire}}
+                                                            </div>
+                                                            <div class="item">
+                                                                <label>Registration Expires</label><br/>
+                                                                {{registration_expire}}
+                                                            </div>
+                                                            <div class="item">
+                                                                <label>Purchase Mileage</label><br/>
+                                                                {{purchase_mileage}}
+                                                            </div>
+                                                            <div class="item">
+                                                                <label>Oil Change Mileage</label><br/>
+                                                                {{oil_change_mileage}}
+                                                            </div>
+                                                            <div class="item">
+                                                                <label>Tire Change Mileage</label><br/>
+                                                                {{tire_change_mileage}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer bg-light">
+                                                    <button type="button" class="btn  btn-outline-secondary" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="editModal{{@index}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header bg-light">
+                                                    <h5 class="modal-title" id="exampleModalLabel">{{model}} - {{year}}</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="POST" action="/vehicle/update/{{id}}">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label for="model">Model</label>
+                                                                    <input type="text" class="form-control" id="model" name="model" placeholder="Model" value="{{model}}" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">                            
+                                                                <div class="form-group">
+                                                                    <label for="year">Year</label>
+                                                                    <input type="text" class="form-control" id="year" name="year" placeholder="Year" value="{{year}}" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="color">Color</label>
+                                                                    <input type="text" class="form-control" id="color" name="color" coi;laceholder="Color" value="{{color}}" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="vin">VIN</label>
+                                                                    <input type="text" class="form-control" id="vin" name="vin" placeholder="VIN" value="{{vin}}" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="license_plate">Licence Plate</label>
+                                                                    <input type="text" class="form-control" id="license_plate" name="license_plate" placeholder="Licence Plate" value="{{license_plate}}" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="toll_tag_number">TollTag Number</label>
+                                                                    <input type="text" class="form-control" id="modtoll_tag_numberel" name="toll_tag_number" placeholder="TollTag Number" value="{{toll_tag_number}}" required>
+                                                                </div>
+                                                            </div>
+                                                            div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="insurance_expire">Insurance Expires</label>
+                                                                    <input type="date" class="form-control" id="insurance_expire_edit" name="insurance_expire" placeholder="Insurance Expires" value="{{insurance_expire}}" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="registration_expire">Registration Expires</label>
+                                                                    <input type="date" class="form-control" id="registration_expire_edit" name="registration_expire" placeholder="Registration Expires" value="{{registration_expire}}" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="purchase_mileage">Purchase Mileage</label>
+                                                                    <input type="number" class="form-control" id="purchase_mileage_edit" name="purchase_mileage" placeholder="Purchase Mileage" value="{{purchase_mileage}}" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="oil_change_mileage">Oil Change Mileage</label>
+                                                                    <input type="number" class="form-control" id="oil_change_mileage_edit" name="oil_change_mileage" placeholder="Oil Change Mileage" value="{{oil_change_mileage}}" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="tire_change_mileage">Tire Change Mileage</label>
+                                                                    <input type="number" class="form-control" id="tire_change_mileage_edit" name="tire_change_mileage" placeholder="Tire Change Mileage" value="{{tire_change_mileage}}" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <div class="text-center">
+                                                                    <button type="submit" class="btn btn-outline-success">Update</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer bg-light">
+                                                    <button type="button" class="btn  btn-outline-secondary" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                             
+                            </div>
+                        {{else}}
+                            <div class="alert alert-primary" role="alert">
+                                <p class="text-center">Your vehicle list is empty</p>
+                            </div>  
+                        {{/each}}                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="addVehicle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-light">
+                    <h5 class="modal-title" id="exampleModalLabel">Register new vehicle</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="/vehicle">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="model">Model</label>
+                                    <input type="text" class="form-control" id="model" name="model" placeholder="Model" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">                            
+                                <div class="form-group">
+                                    <label for="year">Year</label>
+                                    <input type="text" class="form-control" id="year" name="year" placeholder="Year" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="color">Color</label>
+                                    <input type="text" class="form-control" id="color" name="color" coi;laceholder="Color" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="vin">VIN</label>
+                                    <input type="text" class="form-control" id="vin" name="vin" placeholder="VIN" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="license_plate">Licence Plate</label>
+                                    <input type="text" class="form-control" id="license_plate" name="license_plate" placeholder="Licence Plate" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="toll_tag_number">TollTag Number</label>
+                                    <input type="text" class="form-control" id="modtoll_tag_numberel" name="toll_tag_number" placeholder="TollTag Number" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="insurance_expire">Insurance Expires</label>
+                                    <input type="date" class="form-control" id="insurance_expire" name="insurance_expire" placeholder="Insurance Expires" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="registration_expire">Registration Expires</label>
+                                    <input type="date" class="form-control" id="registration_expire" name="registration_expire" placeholder="Registration Expires" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="purchase_mileage">Purchase Mileage</label>
+                                    <input type="number" class="form-control" id="purchase_mileage" name="purchase_mileage" placeholder="Purchase Mileage" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="oil_change_mileage">Oil Change Mileage</label>
+                                    <input type="number" class="form-control" id="oil_change_mileage" name="oil_change_mileage" placeholder="Oil Change Mileage">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tire_change_mileage">Tire Change Mileage</label>
+                                    <input type="number" class="form-control" id="tire_change_mileage" name="tire_change_mileage" placeholder="Tire Change Mileage" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-outline-success">Register</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer bg-light">                    
+                    <button type="button" class="btn  btn-outline-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+</div>
