@@ -46,12 +46,3 @@ db.sequelize.sync().then(function() {
 require("./app/routes/vehicle.routes")(app);
 require("./app/routes/user.routes")(app);
 
-//welcome route
-app.get("/", (req, res) => {
-    res.redirect('/vehicle');
-});
-
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}.`);
-});
-
