@@ -12,3 +12,17 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
         idle: dbConfig.pool.idle
     }
 });
+
+const db = {};
+
+db.Sequelize = Sequelize;
+db.sequelize = sequelize;
+
+db.users = require("./user.model.js")(sequelize, Sequelize);
+db.vehicles = require("./vehicle.model.js")(sequelize, Sequelize);
+
+db.vehicles.belongsTo(db.users, {foreignKey: 'user_id', targetKey: 'id'});
+
+db.users.hasMany(db.vehicles);
+
+module.exports = db;
