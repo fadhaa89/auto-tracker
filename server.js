@@ -12,3 +12,21 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cookieParser());
+
+app.use(session({
+    key: 'user_id',
+    secret: 'MyRandKey',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        expires: 600000
+    }
+}));
+pp.use((req, res, next) => {
+    if (req.cookies.user_id && !req.session.user) {
+        res.clearCookie('user_id');        
+    }
+    next();
+});
+
+app.set('port', process.env.port || port); // set express to use this port
