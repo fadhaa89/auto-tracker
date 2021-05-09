@@ -1,0 +1,20 @@
+{
+  "name": "auto-tracker",
+  "version": "1.0.0",
+  "description": "auto-tracker",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fadhaa89/auto-tracker.git"
+  },
+  "author": "fadhaa and mina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fadhaa89/auto-tracker/issues"
+  },
+  "homepage": "https://github.com/fadhaa89/auto-tracker#readme"
+}
