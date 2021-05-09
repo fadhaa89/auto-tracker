@@ -31,3 +31,20 @@ pp.use((req, res, next) => {
 
 app.set('port', process.env.port || port); // set express to use this port
 app.set('views', __dirname + '/views'); // set express to look in this folder to render our view
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+app.use(express.static(__dirname + '/public'));
+
+const db = require("./app/models");//include models
+db.sequelize.sync().then(function() {
+    console.log('Nice! Database looks fine');
+}).catch(function(err) {
+    console.log(err, "Something went wrong with the Database Update!");
+});
+
+//Include route
+require("./app/routes/vehicle.routes")(app);
+require("./app/routes/user.routes")(app);
+
+
+
