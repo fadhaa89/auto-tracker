@@ -131,3 +131,44 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="editModal{{@index}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header bg-light">
+                                                    <h5 class="modal-title" id="exampleModalLabel">{{model}} - {{year}}</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="POST" action="/vehicle/update/{{id}}">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label for="model">Model</label>
+                                                                    <input type="text" class="form-control" id="model" name="model" placeholder="Model" value="{{model}}" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">                            
+                                                                <div class="form-group">
+                                                                    <label for="year">Year</label>
+                                                                    <input type="text" class="form-control" id="year" name="year" placeholder="Year" value="{{year}}" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="color">Color</label>
+                                                                    <input type="text" class="form-control" id="color" name="color" coi;laceholder="Color" value="{{color}}" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="vin">VIN</label>
+                                                                    <input type="text" class="form-control" id="vin" name="vin" placeholder="VIN" value="{{vin}}" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="license_plate">Licence Plate</label>
+                                                                    <input type="text" class="form-control" id="license_plate" name="license_plate" placeholder="Licence Plate" value="{{license_plate}}" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="toll_tag_number">TollTag Number</label>
+                                                                    <input type="text" class="form-control" id="modtoll_tag_numberel" name="toll_tag_number" placeholder="TollTag Number" value="{{toll_tag_number}}" required>
+                                                                </div>
+                                                            </div>
