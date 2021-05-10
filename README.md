@@ -1,5 +1,2 @@
 # Tittle
  auto-tracker
-  
-
-  auther
