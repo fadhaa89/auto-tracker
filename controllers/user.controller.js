@@ -16,3 +16,33 @@ exports.all = (req, res) => {
         })
     });
 };
+exports.signUpForm = (req, res) => {
+    res.render('sign-up',{title:'Sign Up'});
+};
+
+exports.create = async (req, res) => {
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    const user = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: hashedPassword,
+        address: req.body.address
+    };
+
+    User.create(user)
+        .then(data => {
+            const _user = {
+                id: data.id,
+                firstName: data.firstName,
+                lastName: data.lastName,
+                email: data.email
+            };
+            req.session.user = _user;
+            res.redirect('/vehicle');
+        }).catch(err => {
+            res.redirect('/user/sign-up');
+        });
+    
+};
