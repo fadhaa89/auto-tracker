@@ -29,3 +29,28 @@ exports.delete = (req, res) => {
         //res.render('index',{title:'My Vehicle',results:data});
     });
 };
+exports.create = (req, res) => {
+    let user = req.session.user;
+    let user_id = user.id;
+    const vehicle = {
+        user_id: user_id,
+        model: req.body.model,
+        year: req.body.year,
+        color: req.body.color,
+        vin: req.body.vin,
+        license_plate: req.body.license_plate,
+        toll_tag_number: req.body.toll_tag_number,
+        insurance_expire: req.body.insurance_expire,
+        registration_expire: req.body.registration_expire,
+        purchase_mileage: req.body.purchase_mileage,
+        oil_change_mileage: req.body.oil_change_mileage,
+        tire_change_mileage: req.body.tire_change_mileage
+    };
+
+    Vehicle.create(vehicle)
+        .then(data => {
+            res.redirect('/vehicle');
+        }).catch(err => {
+            res.status(500).send({message: "Some error occurred while creating vehicle."})
+        });    
+};
