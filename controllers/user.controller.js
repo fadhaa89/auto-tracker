@@ -46,3 +46,44 @@ exports.create = async (req, res) => {
         });
     
 };
+exports.LoginForm = (req, res) => {
+    res.render('login', { title: 'Sign In' });
+};
+
+exports.login = async (req, res) => {
+    User.findOne({
+        where: {
+            email: req.body.email
+        }
+    })
+        .then(async (data) => {
+            const validPassword = await bcrypt.compare(req.body.password, data.password);
+            if (!validPassword)
+                res.redirect('/user/login');
+
+            const user = {
+                id: data.id,
+                firstName: data.firstName,
+                lastName: data.lastName,
+                email: data.email
+            };
+
+            req.session.user = user;
+            res.redirect('/vehicle');
+        })
+        .catch(err => {
+            return res.status(400).send({
+                message:"Invalid email or user does not exist"
+            });
+        });
+};
+
+exports.logout = (req, res) => {
+    if (req.session.user) {
+        req.session.user = null;
+        res.clearCookie('user_id');
+        res.redirect('/vehicle');
+    } else {
+        res.redirect('/user/login');
+    }
+};
