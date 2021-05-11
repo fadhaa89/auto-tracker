@@ -54,3 +54,28 @@ exports.create = (req, res) => {
             res.status(500).send({message: "Some error occurred while creating vehicle."})
         });    
 };
+exports.update = (req, res) => {
+    const id = req.params.id;
+    const vehicle = {
+        model: req.body.model,
+        year: req.body.year,
+        color: req.body.color,
+        vin: req.body.vin,
+        license_plate: req.body.license_plate,
+        toll_tag_number: req.body.toll_tag_number,
+        insurance_expire: req.body.insurance_expire,
+        registration_expire: req.body.registration_expire,
+        purchase_mileage: req.body.purchase_mileage,
+        oil_change_mileage: req.body.oil_change_mileage,
+        tire_change_mileage: req.body.tire_change_mileage
+    };
+
+    Vehicle.update(vehicle, {
+        where: {id:id}
+    })
+    .then(data => {
+        res.redirect('/vehicle');
+    }).catch(err => {
+        res.status(500).send({message: err.message})
+    });    
+};
