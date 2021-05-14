@@ -37,5 +37,9 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: false,
         },
+        purchase_mileage: {
+            type: Sequelize.INTEGER,
+            allowNull: true,
+        },
     });
 };
