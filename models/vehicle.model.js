@@ -33,5 +33,9 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: false,
         },
+        insurance_expire: {
+            type: Sequelize.STRING,
+            allowNull: false,
+        },
     });
 };
