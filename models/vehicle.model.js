@@ -29,5 +29,9 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: false,
         },
+        toll_tag_number: {
+            type: Sequelize.STRING,
+            allowNull: false,
+        },
     });
 };
