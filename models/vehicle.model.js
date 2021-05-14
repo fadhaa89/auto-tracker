@@ -25,5 +25,9 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: false,
         },
+        license_plate: {
+            type: Sequelize.STRING,
+            allowNull: false,
+        },
     });
 };
