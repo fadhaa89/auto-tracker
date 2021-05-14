@@ -21,5 +21,9 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: false,
         },
+        vin: {
+            type: Sequelize.STRING,
+            allowNull: false,
+        },
     });
 };
