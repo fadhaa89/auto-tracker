@@ -5,5 +5,9 @@ module.exports = (sequelize, Sequelize) => {
             primaryKey: true,
             type: Sequelize.INTEGER,
         },
+        user_id: {
+            type: Sequelize.INTEGER,
+            allowNull: false,
+        },
     });
 };
