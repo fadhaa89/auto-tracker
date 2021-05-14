@@ -9,5 +9,9 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.INTEGER,
             allowNull: false,
         },
+        year: {
+            type: Sequelize.INTEGER,
+            allowNull: false,
+        },
     });
 };
