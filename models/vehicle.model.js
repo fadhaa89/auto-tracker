@@ -41,5 +41,9 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.INTEGER,
             allowNull: true,
         },
+        oil_change_mileage: {
+            type: Sequelize.INTEGER,
+            allowNull: false,
+        },
     });
 };
