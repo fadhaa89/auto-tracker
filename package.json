@@ -18,8 +18,15 @@
   },
   "homepage": "https://github.com/fadhaa89/auto-tracker#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^9.0.2",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.2",
-    "express-session": "^1.17.1"
+    "express-session": "^1.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.2.5",
+    "randomstring": "^1.2.1",
+    "sequelize": "^6.6.2"
   }
 }
