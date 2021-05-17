@@ -2,17 +2,25 @@
 
 project name auto-tracker
 
-## description
+## description:Auto-Tracker Application
 
-## Table of Contents
+this is an auto tracking system , where users can register their vehicle , view the list of their vehicle and drivers , also can do sign in and sign out
 
 ## Technologies Used
 
-kkkkkkkkkkkkkkk
+The application is deployed on Heroku:
+https://mysterious-beyond-07295.herokuapp.com/user/login
+The NPM package express.
+The NPM package express-session.
+The NPM package express-handlebars.
+The NPM package mysql2.
+The NPM package sequelize.
 
 ## Links
 
-https://mysterious-beyond-07295.herokuapp.com/user/login
+heroku:https://mysterious-beyond-07295.herokuapp.com/user/login
+
+repo:https://github.com/fadhaa89/auto-tracker
 
 ## Authors :
 

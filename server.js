@@ -33,13 +33,13 @@ app.use((req, res, next) => {
     next();
 });
 
-app.set("port", PORT); // set express to use this port
+app.set("port", process.env.port || port); // set express to use this port
 app.set("views", __dirname + "/views"); // set express to look in this folder to render our view
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 app.use(express.static(__dirname + "/public"));
 
-const db = require("./models"); //include models
+const db = require("./app/models"); //include models
 db.sequelize
     .sync()
     .then(function() {
@@ -50,8 +50,8 @@ db.sequelize
     });
 
 //Include route
-require("./routes/vehicle.routes")(app);
-require("./routes/user.routes")(app);
+require("./app/routes/vehicle.routes")(app);
+require("./app/routes/user.routes")(app);
 
 //welcome route
 app.get("/", (req, res) => {
