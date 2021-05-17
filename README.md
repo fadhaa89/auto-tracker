@@ -39,3 +39,4 @@ Group of two project ;
 02-Mina Mahmood
 
 May-2021
+Visuals :![Example Gif](./img/example.gif)
