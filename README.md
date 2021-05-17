@@ -15,6 +15,16 @@ The NPM package express-session.
 The NPM package express-handlebars.
 The NPM package mysql2.
 The NPM package sequelize.
+dependencies
+bcryptjs
+cookie-parser
+dotenv" :to read the .env file
+express
+express-handlebars
+express-session
+jsonwebtoken :for reading the token
+randomstring : if we need any random string
+sequelize
 
 ## Links
 
