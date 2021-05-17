@@ -7,14 +7,12 @@ project name auto-tracker
 ## Table of Contents
 
 ## Technologies Used
+
 kkkkkkkkkkkkkkk
+
 ## Links
 
 https://mysterious-beyond-07295.herokuapp.com/user/login
-
-
-## Repo
-
 
 ## Authors :
 
