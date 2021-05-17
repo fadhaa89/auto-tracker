@@ -8,7 +8,7 @@ project name auto-tracker
 
 ## Technologies Used
 
-kkkkkkkkkkkkkkk
+jhalkak;/l'g
 
 ## Links
 
