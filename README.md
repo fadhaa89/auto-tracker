@@ -35,8 +35,8 @@ repo:https://github.com/fadhaa89/auto-tracker
 ## Authors :
 
 Group of two project ;
-01-Fadhaa Abdullah
-02-Mina Mahmood
+01-Fadhaa Abdullah .
+02-Mina Mahmood . 
 
 May-2021
 Visuals :![Example Gif](./img/example.gif)
